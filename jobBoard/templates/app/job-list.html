@@ -1,0 +1,101 @@
+{% extends "app/base1.html" %}
+{% block content %}
+{% load static %}
+
+<style>
+    .job-list-box {
+        min-height: 150px; /* Ensures consistent card height */
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background: #fff;
+        margin-bottom: 20px; /* Spacing between job cards */
+        width: 100%; /* Make the box take full width of the container */
+    }
+
+    .job-list-box:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .company-logo-img img {
+        max-height: 100px;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .job-list-desc h6 a {
+        text-decoration: none;
+    }
+
+    .job-list-desc h6 a:hover {
+        color: #007bff; /* Highlight color on hover */
+    }
+
+    .text-muted {
+        font-size: 0.9rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .job-list-box {
+            padding: 10px; /* Reduce padding for smaller screens */
+        }
+
+        .company-logo-img img {
+            max-height: 80px; /* Adjust logo size for smaller screens */
+        }
+
+        .job-list-desc h6 {
+            font-size: 1rem; /* Adjust heading size for smaller screens */
+        }
+    }
+</style>
+
+<!-- JOB LIST START -->
+<section class="section pt-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-title text-center mb-4 pb-2">
+                    <h4 class="title title-line pb-5">Available Jobs for You</h4>
+                    <p class="text-muted para-desc mx-auto mb-1">Apply for a job. We'll quickly match you with the right opportunities.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12"> <!-- Increased width by using col-lg-10 -->
+                {% for job in jobs %}
+                <!-- Job Card -->
+                <div class="job-list-box border rounded shadow-sm">
+                    <div class="p-3">
+                        <div class="row align-items-center">
+                            <!-- Logo Section -->
+                            <div class="col-md-2 text-center"> <!-- Adjusted column width for the logo -->
+                                <div class="company-logo-img">
+                                    <img src="{{ job.logo.url }}" alt="{{ job.title }}" class="img-fluid rounded">
+                                </div>
+                            </div>
+                            <!-- Job Details Section -->
+                            <div class="col-md-10"> <!-- Increased column width for details -->
+                                <div class="job-list-desc">
+                                    <h6 class="mb-2"><a href="#" class="text-dark font-weight-bold">{{ job.title }}</a></h6>
+                                    <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>{{ job.name }}</p>
+                                    <p class="text-muted mb-1"><i class="mdi mdi-map-marker mr-2"></i>{{ job.website }}</p>
+                                    <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>{{ job.posted_on|date:"M d, Y" }}</p>
+                                </div>
+                                <div class="mt-3 text-end">
+                                    <a href="{% url 'job_details' id=job.id %}" class="btn btn-sm btn-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- JOB LIST END -->
+
+{% endblock %}

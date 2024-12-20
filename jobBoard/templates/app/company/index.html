@@ -1,0 +1,110 @@
+{% extends "app/company/base1.html" %}
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Profile</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    /* Hero Section */
+    .hero-section {
+      background: url('https://t4.ftcdn.net/jpg/03/53/99/55/360_F_353995594_6AW7CYzgqkSTCMktfFSm2XyjvLDzauDX.jpg') no-repeat center center;
+      background-size: cover;
+      height: 50vh;
+      color: white;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Gradient background */
+    .gradient-bg {
+      background: linear-gradient(to right, #fcfefe,#e3f3fa, #fcfefe);
+    }
+
+    .section-title {
+      margin-top: 40px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2C3E50;
+    }
+
+    .section-description {
+      font-size: 1rem; /* Decreased font size */
+      line-height: 1.6;
+      margin-top: 20px;
+      color: #34495E;
+    }
+
+    .container {
+      padding-top: 40px;
+    }
+
+    .about-section, .job-section, .track-section {
+      padding: 40px 0;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .section-description {
+        font-size: 0.9rem; /* Adjust paragraph size on smaller screens */
+      }
+
+      .hero-section h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1>Welcome</h1>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about-section gradient-bg">
+    <div class="container text-center">
+      <h2 class="section-title">About Us</h2>
+      <p class="section-description">We are a forward-thinking company focused on creating job opportunities across various sectors. We believe in innovation, teamwork, and creating a positive work environment where our employees can thrive and make an impact. Join us as we continue to grow and expand globally.</p>
+    </div>
+  </section>
+
+  <!-- Job Posting Section -->
+  <section class="job-section gradient-bg">
+    <div class="container text-center">
+      <h2 class="section-title">Post Jobs with Us</h2>
+      <p class="section-description">Our job posting process is simple and straightforward. We provide a platform where companies can easily post job openings to attract top talent. From tech to marketing to operations, we help you find the right candidates for every position. Our goal is to streamline the hiring process and provide both employers and job seekers with a seamless experience.</p>
+      <p class="section-description">Posting a job involves filling out a brief form with details about the role, skills required, responsibilities, and location. Once submitted, your job post will be visible to qualified candidates who can apply directly through our platform. We ensure that every job post gets the attention it deserves and helps connect you with the right talent.</p>
+    </div>
+  </section>
+
+  <!-- Job Tracking Section -->
+  <section class="track-section gradient-bg">
+    <div class="container text-center">
+      <h2 class="section-title">Track Job Applications</h2>
+      <p class="section-description">Tracking job applications has never been easier. With our platform, you can monitor the progress of each job post, including the number of applicants, their qualifications, and their application statuses. Stay updated in real time and make data-driven decisions when reviewing applicants.</p>
+      <p class="section-description">Our tracking tools allow you to filter applicants based on criteria such as experience, skills, and location. You can also view their application status, schedule interviews, and manage communications, all in one place. We make the hiring process efficient and transparent, saving you time and effort.</p>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+    {% endblock%}

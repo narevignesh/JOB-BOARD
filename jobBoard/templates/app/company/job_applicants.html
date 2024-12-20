@@ -1,0 +1,62 @@
+{% extends "app/company/base1.html" %}
+
+{% block content %}
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Job Applications</h6>
+    </div>
+    <center>
+    {% if messages %}
+    <div class="alert alert-success">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    </center>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Job Position</th>
+                        <th>Cover Letter</th>
+                        <th>Resume</th>
+                        <th>Submitted At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for application in job_applications %}
+                        {% if company_id == application.company_id_id %}
+                        <tr>
+                            <td>{{ application.firstname }}</td>
+                            <td>{{ application.lastname }}</td>
+                            <td>{{ application.email }}</td>
+                            <td>{{ application.phone }}</td>
+                            <td>{{ application.job_position }}</td>
+                            <td>{{ application.cover_letter }}</td>
+                            <td><a href="{{ application.resume.url }}" target="_blank">Download</a></td>
+                            <td>{{ application.submitted_at|date:"Y-m-d H:i" }}</td>
+                            <td>
+                                <!-- Delete Button -->
+                                <a href="{% url 'application_delete' id=application.id %}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% empty %}
+                    <tr>
+                        <td colspan="9">No job applications available for this company.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

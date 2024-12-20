@@ -1,0 +1,66 @@
+{% extends "app/company/base1.html" %}
+
+{% block content %}
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Job Posts</h6>
+    </div>
+    <center>
+    {% if messages %}
+    <div class="alert alert-success">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+</center>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Job Title</th>
+                        <th>Description</th>
+                        <th>Salary</th>
+                        <th>Experience</th>
+                        <th>Website</th>
+                        <th>Logo</th>
+                        <th>Created At</th>
+                        <th>Actions</th> <!-- Add this for the action buttons -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for job in job_posts %}
+                        {% if company_id == job.company_id_id %}
+                        <tr>
+                            <td>{{ job.name }}</td> <!-- Access company name via the related company object -->
+                            <td>{{ job.title }}</td>
+                            <td>{{ job.description }}</td>
+                            <td>${{ job.salary }}</td>
+                            <td>{{ job.experience }} years</td>
+                            <td><a href="{{ job.website }}" target="_blank">{{ job.website }}</a></td>
+                            <td><img src="{{ job.logo.url }}" alt="Company Logo" width="50"></td>
+                            <td>{{ job.posted_on|date:"Y-m-d H:i" }}</td> <!-- Format the date -->
+                            <td>
+                                <!-- Edit Button -->
+                                <a href="{% url 'jobupdate' id=job.id %}" class="btn btn-warning btn-sm">Edit</a>
+
+                                <!-- Delete Button -->
+                                <a href="{% url 'jobdeleted' id=job.id pk=request.session.id %}" class="btn btn-danger btn-sm" >Delete</a>
+
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% empty %}
+                    <tr>
+                        <td colspan="9">No job posts available for this company.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
