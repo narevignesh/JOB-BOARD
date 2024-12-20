@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-f4iuff7ds23y^n%dk41stw@+*e5t-(9avko$j8sh269!xoaspx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'jobBoard.urls'
@@ -99,16 +101,19 @@ WSGI_APPLICATION = 'jobBoard.wsgi.application'
 # }
 
 
+from decouple import config
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jobboard',     # Replace with your database name
-        'USER': 'root',          # Replace with your MySQL username
-        'PASSWORD': 'vignesh123@MBU',      # Replace with your MySQL password
-        'HOST': 'localhost',              # Use '127.0.0.1' or your database host
-        'PORT': '3306',                   # Default MySQL port
+        'NAME': config('DB_NAME', default='jobboard'),
+        'USER': config('DB_USER', default='root'),
+        'PASSWORD': config('DB_PASSWORD', default='vignesh123@MBU'),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='3306'),
     }
 }
+
 
 
 
