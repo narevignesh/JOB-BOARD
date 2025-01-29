@@ -11,5 +11,8 @@ cd jobBoard
 # Collect static files
 python manage.py collectstatic --no-input
 
-# Run migrations
-python manage.py migrate 
+# Create migrations
+python manage.py makemigrations
+
+# Apply migrations with increased verbosity
+python manage.py migrate --noinput --verbosity 2 

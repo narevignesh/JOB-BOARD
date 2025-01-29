@@ -1,1 +1,1 @@
-web: cd jobBoard && gunicorn jobBoard.wsgi --log-file - 
+web: cd jobBoard && gunicorn jobBoard.wsgi:application --preload --max-requests 1200 --timeout 60 
