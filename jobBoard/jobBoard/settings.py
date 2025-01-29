@@ -59,11 +59,17 @@ WSGI_APPLICATION = 'jobBoard.wsgi.application'
 
 # Database configuration
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL', default='sqlite:///db.sqlite3'),
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'jobboard',
+        'CLIENT': {
+            'host': 'mongodb+srv://vigneshnaidu022:vigneshnaidu022@cluster0.jsiyu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+            'username': 'vigneshnaidu022',
+            'password': 'vigneshnaidu022',
+            'authSource': 'admin',
+            'authMechanism': 'SCRAM-SHA-1',
+        }
+    }
 }
 
 # Password validation
