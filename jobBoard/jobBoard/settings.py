@@ -60,15 +60,8 @@ WSGI_APPLICATION = 'jobBoard.wsgi.application'
 # Database configuration
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'jobboard',
-        'CLIENT': {
-            'host': 'mongodb+srv://vigneshnaidu022:vigneshnaidu022@cluster0.jsiyu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
-            'username': 'vigneshnaidu022',
-            'password': 'vigneshnaidu022',
-            'authSource': 'admin',
-            'authMechanism': 'SCRAM-SHA-1',
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
