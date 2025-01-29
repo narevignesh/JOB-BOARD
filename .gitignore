@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# Virtual Environment
+myenv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment variables
+.env
+
+# Static files
+staticfiles/
+
+# Production files
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Remove unnecessary files
+rm jobBoard/jobBoard/production.py
+rm jobBoard/runtime.txt
+rm jobBoard/Procfile
+rm -rf jobBoard/job/tests.py  # Unless you're writing tests
+rm -rf jobBoard/static/company/js/demo/  # Remove demo files 
