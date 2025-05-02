@@ -13,7 +13,6 @@ A Django-based job board application that allows companies to post jobs and cand
 ## Requirements
 
 - Python 3.11+
-- MySQL
 - Django 5.1.4
 - Other dependencies listed in requirements.txt
 
