@@ -28,6 +28,7 @@ A Django-based job board application that allows companies to post jobs and cand
 
 3. Install dependencies:
    ```bash
+   cd JOB-BOARD
    pip install -r requirements.txt
    ```
 
