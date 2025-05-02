@@ -22,8 +22,8 @@ A Django-based job board application that allows companies to post jobs and cand
 2. Create a virtual environment:
    ```bash
    python -m venv myenv
-   source myenv/bin/activate  # On Unix/MacOS
-   myenv\Scripts\activate     # On Windows
+   source myenv/bin/Activate  # On Unix/MacOS
+   myenv\Scripts\Activate     # On Windows
    ```
 
 3. Install dependencies:
