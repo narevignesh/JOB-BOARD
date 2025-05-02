@@ -31,20 +31,23 @@ A Django-based job board application that allows companies to post jobs and cand
    pip install -r requirements.txt
    ```
 
-4. Configure database in .env file
+4. Root the directory
+   ```bash
+   cd jobBoard
+   ```
 
-5. Apply migrations:
+6. Apply migrations:
    ```bash
    python manage.py makemigrations
    python manage.py migrate
    ```
 
-6. Create superuser:
+7. Create superuser:
    ```bash
    python manage.py createsuperuser
    ```
 
-7. Run the development server:
+8. Run the development server:
    ```bash
    python manage.py runserver
    ```
